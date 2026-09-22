@@ -1,0 +1,110 @@
+import { DatabaseState, Job, Resource } from '../types';
+
+export const INITIAL_JOBS: Job[] = [
+  {
+    id: 'J001',
+    productName: 'Gear Housing',
+    quantity: 100,
+    priority: 'High',
+    processingTime: 45,
+    requiredMachineType: 'CNC',
+    deadline: '16:00',
+    status: 'Pending',
+    notes: 'Precision automotive gear casing for assembly line 1',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'J002',
+    productName: 'Shaft Assembly',
+    quantity: 50,
+    priority: 'Medium',
+    processingTime: 30,
+    requiredMachineType: 'CNC',
+    deadline: '15:00',
+    status: 'Pending',
+    notes: 'Hardened steel drive shaft with keyway machining',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'J003',
+    productName: 'Bearing Unit',
+    quantity: 80,
+    priority: 'Critical',
+    processingTime: 40,
+    requiredMachineType: 'CNC',
+    deadline: '17:00',
+    status: 'Pending',
+    notes: 'High-speed ceramic bearing housing requiring CNC mill-turn',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'J004',
+    productName: 'Cover Plate',
+    quantity: 120,
+    priority: 'Low',
+    processingTime: 25,
+    requiredMachineType: 'Assembly',
+    deadline: '18:00',
+    status: 'Pending',
+    notes: 'Dust protection sealing plate installation',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+
+export const INITIAL_RESOURCES: Resource[] = [
+  {
+    id: 'M001',
+    name: 'CNC-01',
+    type: 'CNC',
+    capacity: 1,
+    status: 'Available',
+    availableFrom: '08:00',
+    availableTo: '17:00',
+    location: 'Bay 1 - Heavy Machining',
+    maintenanceNote: 'Regular calibration completed',
+  },
+  {
+    id: 'M002',
+    name: 'CNC-02',
+    type: 'CNC',
+    capacity: 1,
+    status: 'Available',
+    availableFrom: '08:00',
+    availableTo: '17:00',
+    location: 'Bay 2 - Precision Turning',
+    maintenanceNote: 'Tool head inspected',
+  },
+  {
+    id: 'M003',
+    name: 'ASM-01',
+    type: 'Assembly',
+    capacity: 2,
+    status: 'Available',
+    availableFrom: '09:00',
+    availableTo: '18:00',
+    location: 'Bay 3 - Modular Assembly Line',
+    maintenanceNote: 'Dual station pneumatic fixtures ready',
+  },
+];
+
+export function getInitialDatabaseState(): DatabaseState {
+  return {
+    jobs: [...INITIAL_JOBS],
+    resources: [...INITIAL_RESOURCES],
+    schedules: [],
+    conflicts: [],
+    productionLogs: [
+      {
+        id: 'LOG-001',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        action: 'System Initialized',
+        details: 'Production Line Database initialized with 4 jobs and 3 manufacturing machines.',
+        category: 'System',
+      },
+    ],
+  };
+}

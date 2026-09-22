@@ -1,0 +1,6 @@
+{
+  "name": "Production Line Resource Scheduling System",
+  "description": "Smart Production Planning & Resource Optimization for manufacturing lines with priority, deadline, and resource constraints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
